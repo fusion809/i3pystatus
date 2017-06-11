@@ -47,7 +47,7 @@ class Mem(IntervalModule):
         if psutil.version_info < (4, 4, 0):
             used = abs(memory_usage.used - memory_usage.cached - memory_usage.buffers)
         else:
-            used = memory_usage.used
+            used = abs(memory_usage.used)
 
         if memory_usage.percent >= self.alert_percentage:
             color = self.alert_color
