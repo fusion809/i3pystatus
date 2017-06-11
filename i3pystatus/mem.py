@@ -57,7 +57,7 @@ class Mem(IntervalModule):
             color = self.color
 
         cdict = {
-            "used_mem": used / self.divisor,
+            "used_mem": used / abs(self.divisor),
             "avail_mem": memory_usage.available / self.divisor,
             "total_mem": memory_usage.total / self.divisor,
             "percent_used_mem": memory_usage.percent,
