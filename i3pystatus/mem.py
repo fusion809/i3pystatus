@@ -45,7 +45,7 @@ class Mem(IntervalModule):
         memory_usage = psutil.virtual_memory()
 
         if psutil.version_info < (4, 4, 0):
-            used = memory_usage.used - memory_usage.cached - memory_usage.buffers
+            used = abs(memory_usage.used - memory_usage.cached - memory_usage.buffers)
         else:
             used = memory_usage.used
 
